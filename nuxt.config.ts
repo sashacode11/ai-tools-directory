@@ -12,4 +12,14 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  modules: ['@nuxtjs/sitemap', '@nuxtjs/robots'],
+  sitemap: {
+    siteUrl: 'https://ai-tools-directory-zeta-red.vercel.app',
+    sources: ['/api/__sitemap__/urls'],
+  },
+  robots: {
+    UserAgent: '*',
+    Allow: '/',
+    Sitemap: 'https://ai-tools-directory-zeta-red.vercel.app/sitemap.xml',
+  },
 });
