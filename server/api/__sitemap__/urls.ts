@@ -8,11 +8,29 @@ export default defineEventHandler(async () => {
 
   const { data: tools } = await supabase.from('tools').select('slug');
 
-  return (
+  const toolUrls =
     tools?.map(tool => ({
       loc: `/tools/${tool.slug}`,
       changefreq: 'monthly',
       priority: 0.8,
-    })) ?? []
-  );
+    })) ?? [];
+
+  const categoryUrls = [
+    'writing',
+    'image',
+    'video',
+    'audio',
+    'code',
+    'search',
+    'productivity',
+    'marketing',
+    'education',
+    'business',
+  ].map(cat => ({
+    loc: `/category/${cat}`,
+    changefreq: 'weekly',
+    priority: 0.9,
+  }));
+
+  return [...categoryUrls, ...toolUrls];
 });
