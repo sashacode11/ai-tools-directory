@@ -22,4 +22,14 @@ export default defineNuxtConfig({
     Allow: '/',
     Sitemap: 'https://ai-tools-directory-zeta-red.vercel.app/sitemap.xml',
   },
+  app: {
+    head: {
+      meta: [
+        {
+          name: 'google-site-verification',
+          content: 'vYl6f3GRwq80CxJNYdfyny1PW-eSDsDphqXGVsp-wsw',
+        },
+      ],
+    },
+  },
 });
