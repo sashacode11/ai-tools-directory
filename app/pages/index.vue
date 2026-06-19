@@ -75,7 +75,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const supabase = useSupabase();
 const { data: tools } = await supabase.from('tools').select('*').order('name');
 
