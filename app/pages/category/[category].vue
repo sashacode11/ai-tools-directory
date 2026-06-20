@@ -104,7 +104,7 @@ const filtered = computed(() => {
 });
 
 useHead({
-  title: `${categoryName.value} AI Tools – AI Tools Directory`,
+  title: `${categoryName.value} AI Tools – SharkCraw`,
   meta: [
     {
       name: 'description',

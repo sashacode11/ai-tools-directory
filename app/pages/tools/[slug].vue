@@ -90,7 +90,9 @@ const tool = tools?.[0] ?? null;
 
 // SEO
 useHead({
-  title: tool ? `${tool.name} – ${tool.tagline}` : 'Tool not found',
+  title: tool
+    ? `${tool.name} – ${tool.tagline} | SharkCraw`
+    : 'Tool not found | SharkCraw',
   meta: [
     {
       name: 'description',

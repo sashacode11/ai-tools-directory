@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   modules: ['@nuxtjs/sitemap', '@nuxtjs/robots'],
   sitemap: {
-    siteUrl: 'https://ai-tools-directory-zeta-red.vercel.app',
+    siteUrl: 'https://www.sharkcraw.com',
     sources: ['/api/__sitemap__/urls'],
   },
   robots: {

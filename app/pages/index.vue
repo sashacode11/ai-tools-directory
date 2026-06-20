@@ -1,50 +1,44 @@
 <template>
   <div class="min-h-screen bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 py-12">
-      <!-- Header -->
-      <div class="mb-10 text-center">
-        <h1 class="text-4xl font-bold text-gray-900 mb-3">
-          AI Tools Directory
+    <div class="max-w-5xl mx-auto px-4 py-8">
+      <!-- Hero -->
+      <div class="mb-4">
+        <h1 class="text-2xl font-bold text-gray-900 mb-4">
+          Find the best AI tools
         </h1>
-        <p class="text-gray-500 text-lg">
-          Browse {{ totalCount }} AI tools across
-          {{ categories.length }} categories
-        </p>
-      </div>
-
-      <!-- Search + Filter -->
-      <div class="flex flex-col sm:flex-row gap-3 mb-8">
-        <input
-          v-model="search"
-          type="text"
-          placeholder="Search tools..."
-          class="flex-1 px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          @input="onSearchInput"
-        />
-        <select
-          v-model="selectedCategory"
-          class="px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          @change="onFilterChange"
-        >
-          <option value="">All categories</option>
-          <option v-for="cat in categories" :key="cat" :value="cat">
-            {{ cat }}
-          </option>
-        </select>
-        <select
-          v-model="selectedPricing"
-          class="px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          @change="onFilterChange"
-        >
-          <option value="">All pricing</option>
-          <option value="free">Free</option>
-          <option value="freemium">Freemium</option>
-          <option value="paid">Paid</option>
-        </select>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input
+            v-model="search"
+            type="text"
+            placeholder="Search tools..."
+            class="flex-1 px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            @input="onSearchInput"
+          />
+          <select
+            v-model="selectedCategory"
+            class="px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            @change="onFilterChange"
+          >
+            <option value="">All categories</option>
+            <option v-for="cat in categories" :key="cat" :value="cat">
+              {{ cat }}
+            </option>
+          </select>
+          <select
+            v-model="selectedPricing"
+            class="px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            @change="onFilterChange"
+          >
+            <option value="">All pricing</option>
+            <option value="free">Free</option>
+            <option value="freemium">Freemium</option>
+            <option value="paid">Paid</option>
+          </select>
+        </div>
       </div>
 
       <!-- Results count -->
-      <p class="text-sm text-gray-400 mb-4">{{ totalCount }} tools</p>
+      <p class="text-sm text-gray-400 mb-2">{{ totalCount }} tools</p>
 
       <!-- Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -221,7 +215,7 @@ async function onFilterChange() {
 }
 
 useHead({
-  title: 'AI Tools Directory – Find the best AI tools',
+  title: 'SharkCraw – Find the Best AI Tools',
   meta: [
     {
       name: 'description',
