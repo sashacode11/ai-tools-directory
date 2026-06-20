@@ -27,7 +27,11 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'google-site-verification',
-          content: 'vYl6f3GRwq80CxJNYdfyny1PW-eSDsDphqXGVsp-wsw',
+          content: 'vYI6f3GRwq80CxJNYdfyny1PW-eSDsDphqXGVsp-wsw',
+        },
+        {
+          name: 'google-site-verification',
+          content: 'Y6wa8EnhUMIfEnp-gEBKaIogxEyMBglxbTAIMTn2xPY',
         },
       ],
     },
