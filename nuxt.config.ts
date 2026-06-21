@@ -34,6 +34,10 @@ export default defineNuxtConfig({
           name: 'google-site-verification',
           content: 'Y6wa8EnhUMIfEnp-gEBKaIogxEyMBglxbTAIMTn2xPY',
         },
+        {
+          name: 'impact-site-verification',
+          content: '546df1dc-e828-42b1-9604-8ef436aec4af',
+        },
       ],
       script: [
         {
