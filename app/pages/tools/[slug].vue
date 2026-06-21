@@ -40,7 +40,7 @@
         </p>
 
         <a
-          :href="tool.website_url"
+          :href="tool.affiliate_url || tool.website_url"
           target="_blank"
           rel="noopener noreferrer"
           class="mt-8 inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-5 py-2.5 rounded-lg transition-colors text-sm"
