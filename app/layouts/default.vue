@@ -50,5 +50,20 @@
       </div>
     </header>
     <slot />
+    <footer class="border-t border-gray-100 mt-16">
+      <div
+        class="max-w-5xl mx-auto px-4 py-6 flex items-center justify-between text-sm text-gray-400"
+      >
+        <span>© 2026 SharkCraw</span>
+        <div class="flex gap-6">
+          <NuxtLink to="/about" class="hover:text-gray-600 transition-colors"
+            >About</NuxtLink
+          >
+          <NuxtLink to="/privacy" class="hover:text-gray-600 transition-colors"
+            >Privacy Policy</NuxtLink
+          >
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
