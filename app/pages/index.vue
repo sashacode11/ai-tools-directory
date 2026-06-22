@@ -31,8 +31,8 @@
           >
             <option value="">All pricing</option>
             <option value="free">Free</option>
-            <option value="freemium">Freemium</option>
-            <option value="paid">Paid</option>
+            <option value="freemium">Free + Paid</option>
+            <option value="paid">Paid only</option>
           </select>
         </div>
       </div>
@@ -64,7 +64,7 @@
                 'bg-amber-100 text-amber-700': tool.pricing === 'paid',
               }"
             >
-              {{ tool.pricing }}
+              {{ tool.pricing === 'freemium' ? 'Free + Paid' : tool.pricing === 'paid' ? 'Paid only' : 'Free' }}
             </span>
           </div>
           <h2

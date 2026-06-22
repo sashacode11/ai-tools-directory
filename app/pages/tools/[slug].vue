@@ -31,7 +31,7 @@
               'bg-amber-100 text-amber-700': tool.pricing === 'paid',
             }"
           >
-            {{ tool.pricing }}
+            {{ tool.pricing === 'freemium' ? 'Free + Paid' : tool.pricing === 'paid' ? 'Paid only' : 'Free' }}
           </span>
         </div>
 
