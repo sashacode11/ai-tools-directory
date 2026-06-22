@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gray-50">
     <div class="max-w-5xl mx-auto px-4 py-12">
-      <!-- Back -->
       <NuxtLink
         to="/"
         class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-800 transition-colors mb-10"
@@ -9,17 +8,18 @@
         ← All tools
       </NuxtLink>
 
-      <!-- Header -->
       <div class="mb-10 text-center">
         <h1 class="text-4xl font-bold text-gray-900 mb-3 capitalize">
-          {{ categoryName }} AI Tools
+          Best {{ categoryName }} AI Tools in 2025
         </h1>
-        <p class="text-gray-500 text-lg">
-          Browse {{ tools.length }} AI tools in {{ categoryName }}
+        <p class="text-gray-500 text-lg mb-4">
+          Browse {{ tools?.length ?? 0 }} AI tools in {{ categoryName }}
+        </p>
+        <p class="text-gray-600 max-w-2xl mx-auto text-base">
+          {{ categoryDescription }}
         </p>
       </div>
 
-      <!-- Search -->
       <div class="flex flex-col sm:flex-row gap-3 mb-8">
         <input
           v-model="search"
@@ -29,10 +29,8 @@
         />
       </div>
 
-      <!-- Results count -->
       <p class="text-sm text-gray-400 mb-4">{{ filtered.length }} tools</p>
 
-      <!-- Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <NuxtLink
           v-for="tool in filtered"
@@ -66,7 +64,6 @@
         </NuxtLink>
       </div>
 
-      <!-- Empty state -->
       <div v-if="filtered.length === 0" class="text-center py-20 text-gray-400">
         No tools match your search.
       </div>
@@ -85,6 +82,34 @@ const categoryName = computed(() =>
     .join(' '),
 );
 
+const categoryDescriptions: Record<string, string> = {
+  Writing:
+    'Discover the best AI writing tools to create content faster, improve grammar, generate blog posts, and automate copywriting. Perfect for bloggers, marketers, and content creators.',
+  Image:
+    'Explore top AI image generation and editing tools to create stunning visuals, logos, and artwork from text prompts. No design experience needed.',
+  Video:
+    'Find AI video creation and editing tools that help you produce professional videos, animations, and shorts in minutes.',
+  Audio:
+    'Browse AI audio tools for voice generation, music creation, transcription, and podcast editing.',
+  Code: 'Discover AI coding assistants and developer tools that help you write, debug, and review code faster.',
+  Search:
+    'Explore AI-powered search engines and research tools that find information smarter and faster than traditional search.',
+  Productivity:
+    'Find AI productivity tools to automate tasks, manage your time, take smarter notes, and get more done every day.',
+  Marketing:
+    'Browse AI marketing tools for SEO, social media, email campaigns, and ad creation to grow your business.',
+  Education:
+    'Discover AI education tools for learning, tutoring, study assistance, and skill development.',
+  Business:
+    'Explore AI business tools for analytics, CRM, automation, and decision-making to run your company smarter.',
+};
+
+const categoryDescription = computed(
+  () =>
+    categoryDescriptions[categoryName.value] ??
+    `Browse the best ${categoryName.value} AI tools available in 2025.`,
+);
+
 const { data: tools } = await supabase
   .from('tools')
   .select('*')
@@ -92,7 +117,6 @@ const { data: tools } = await supabase
   .order('name');
 
 const search = ref('');
-
 const filtered = computed(() => {
   if (!tools) return [];
   return tools.filter(
@@ -103,22 +127,33 @@ const filtered = computed(() => {
   );
 });
 
+const metaDescription = computed(
+  () =>
+    `Browse ${tools?.length ?? 0}+ best ${categoryName.value} AI tools in 2025. Compare free and paid options. Find the right ${categoryName.value.toLowerCase()} AI tool for your needs.`,
+);
+
 useHead({
-  title: `${categoryName.value} AI Tools – SharkCraw`,
+  title: `Best ${categoryName.value} AI Tools 2025 – SharkCraw`,
   meta: [
-    {
-      name: 'description',
-      content: `Browse the best ${categoryName.value} AI tools. Find free and paid options for ${categoryName.value.toLowerCase()}.`,
-    },
+    { name: 'description', content: metaDescription.value },
     {
       property: 'og:title',
-      content: `${categoryName.value} AI Tools – AI Tools Directory`,
+      content: `Best ${categoryName.value} AI Tools 2025 – SharkCraw`,
     },
-    {
-      property: 'og:description',
-      content: `Browse the best ${categoryName.value} AI tools.`,
-    },
+    { property: 'og:description', content: metaDescription.value },
     { property: 'og:type', content: 'website' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: `Best ${categoryName.value} AI Tools 2025`,
+        description: metaDescription.value,
+        url: `https://www.sharkcraw.com/category/${route.params.category}`,
+      }),
+    },
   ],
 });
 </script>
