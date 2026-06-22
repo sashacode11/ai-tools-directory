@@ -10,7 +10,7 @@
 
       <div class="mb-10 text-center">
         <h1 class="text-4xl font-bold text-gray-900 mb-3 capitalize">
-          Best {{ categoryName }} AI Tools in 2025
+          Best {{ categoryName }} AI Tools
         </h1>
         <p class="text-gray-500 text-lg mb-4">
           Browse {{ tools?.length ?? 0 }} AI tools in {{ categoryName }}
@@ -107,7 +107,7 @@ const categoryDescriptions: Record<string, string> = {
 const categoryDescription = computed(
   () =>
     categoryDescriptions[categoryName.value] ??
-    `Browse the best ${categoryName.value} AI tools available in 2025.`,
+    `Browse the best ${categoryName.value} AI tools available .`,
 );
 
 const { data: tools } = await supabase
@@ -129,16 +129,16 @@ const filtered = computed(() => {
 
 const metaDescription = computed(
   () =>
-    `Browse ${tools?.length ?? 0}+ best ${categoryName.value} AI tools in 2025. Compare free and paid options. Find the right ${categoryName.value.toLowerCase()} AI tool for your needs.`,
+    `Browse ${tools?.length ?? 0}+ best ${categoryName.value} AI tools . Compare free and paid options. Find the right ${categoryName.value.toLowerCase()} AI tool for your needs.`,
 );
 
 useHead({
-  title: `Best ${categoryName.value} AI Tools 2025 – SharkCraw`,
+  title: `Best ${categoryName.value} AI Tools  – SharkCraw`,
   meta: [
     { name: 'description', content: metaDescription.value },
     {
       property: 'og:title',
-      content: `Best ${categoryName.value} AI Tools 2025 – SharkCraw`,
+      content: `Best ${categoryName.value} AI Tools  – SharkCraw`,
     },
     { property: 'og:description', content: metaDescription.value },
     { property: 'og:type', content: 'website' },
@@ -149,7 +149,7 @@ useHead({
       children: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: `Best ${categoryName.value} AI Tools 2025`,
+        name: `Best ${categoryName.value} AI Tools `,
         description: metaDescription.value,
         url: `https://www.sharkcraw.com/category/${route.params.category}`,
       }),
