@@ -42,7 +42,7 @@ export default defineNuxtConfig({
       script: [
         {
           async: true,
-          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2075457485171732',
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655678059754619',
           crossorigin: 'anonymous',
         },
         {
