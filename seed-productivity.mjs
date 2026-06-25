@@ -87,6 +87,16 @@ const tools = [
     website_url: 'https://mem.ai',
   },
   {
+    name: 'Remio',
+    slug: 'remio',
+    tagline: 'Local-first AI memory and personal knowledge base',
+    description:
+      'Remio is a local-first AI memory and personal knowledge base for files, webpages, recordings, emails, messages, images, and notes. It builds local indexes and vectors so users can retrieve focused personal context instead of repeatedly scanning folders or loading whole documents into prompts.',
+    category: 'Productivity',
+    pricing: 'freemium',
+    website_url: 'https://remio.ai/',
+  },
+  {
     name: 'Obsidian AI',
     slug: 'obsidian-ai',
     tagline: 'AI plugins for Obsidian knowledge base',
